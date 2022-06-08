@@ -2,6 +2,8 @@ import cron from "node-cron";
 import { ConsumerService } from "../app/services/ConsumerService";
 import { MailtrapMailProvider } from "../app/services/implementations/MailtrapMailProvider";
 import { prismaClient } from "../db/prisma/prismaClient";
+import { DateUtils } from "../utils/Date";
+import { EmailsUtils } from "../utils/Emails";
 
 async function multipleRequests(consumerService, total: number) {
   console.log("Multiple resquests needed for update the DB, wait...");
@@ -20,30 +22,22 @@ function parsedDataTime(date: number) {
   return new Date(date).toLocaleTimeString();
 }
 
-async function emailAlert(errorType: string, mailProvider) {
-  await mailProvider.sendMail({
-    to: {
-      name: "Suporte",
-      email: "backoffice@email.com",
-    },
-    from: {
-      name: "Alerts",
-      email: "alert@email.com",
-    },
-    subject: `Erro ${errorType}`,
-    body: `Verifique os logs da ${errorType}`,
-  });
-}
-
 const cronArticles = async () => {
   cron.schedule(
     //TODO - Lembrar de alterar para as 09:00 -> 0 9 * * *
     "0 */1 * * * *",
     async () => {
-      const startDate = new Date().getTime();
-      console.log("[START] [cronArticle] - ", parsedDataTime(startDate));
       const consumerService = new ConsumerService();
       const mailProvider = new MailtrapMailProvider();
+      const emailUtils = new EmailsUtils(mailProvider);
+      const dateUtils = new DateUtils();
+
+      const startDate = new Date().getTime();
+      console.log(
+        "[START] [cronArticle] - ",
+        dateUtils.parsedEpochToString(startDate)
+      );
+
       try {
         const total = await consumerService.getCount();
         console.log(`Total articles: ${total}`);
@@ -73,10 +67,13 @@ const cronArticles = async () => {
         console.log("DB and API synchronized");
       } catch (error) {
         console.log("Email de Alerta para o suporte disparado!");
-        await emailAlert("[cronArticle]", mailProvider);
+        await emailUtils.alert("[cronArticle]");
       }
       const endDate = new Date().getTime();
-      console.log("[STOP] [cronArticle] - ", parsedDataTime(endDate));
+      console.log(
+        "[STOP] [cronArticle] - ",
+        dateUtils.parsedEpochToString(endDate)
+      );
     },
     {
       scheduled: true,
