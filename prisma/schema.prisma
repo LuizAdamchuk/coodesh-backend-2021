@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Article {
+  id Int @unique
+  featured Boolean
+  title String @unique
+  url String
+  imageUrl String
+  newsSite String
+  summary String
+  publishedAt String
+  updatedAt String
+  @@map("articles")
+}
+
+model CronJob {
+  id String @id @default(uuid())
+  quantity Int 
+  runAt DateTime @default(now())
+
+  @@map("cron_job")
+}
