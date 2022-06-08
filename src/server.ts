@@ -1,4 +1,5 @@
 import "express-async-errors";
+import "dotenv/config";
 import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
 import router from "./routes";
@@ -32,7 +33,7 @@ app.use(
 app.use(router);
 
 // Calling the cron script
-// cronArticles();
+cronArticles();
 
 app.listen(3333, () => {
   console.log("Server started on port 3333");

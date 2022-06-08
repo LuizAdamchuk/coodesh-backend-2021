@@ -1,5 +1,6 @@
 import cron from "node-cron";
 import { ConsumerService } from "../app/services/ConsumerService";
+import { MailtrapMailProvider } from "../app/services/implementations/MailtrapMailProvider";
 import { prismaClient } from "../db/prisma/prismaClient";
 
 async function multipleRequests(consumerService, total: number) {
@@ -19,6 +20,21 @@ function parsedDataTime(date: number) {
   return new Date(date).toLocaleTimeString();
 }
 
+async function emailAlert(errorType: string, mailProvider) {
+  await mailProvider.sendMail({
+    to: {
+      name: "Suporte",
+      email: "backoffice@email.com",
+    },
+    from: {
+      name: "Alerts",
+      email: "alert@email.com",
+    },
+    subject: `Erro ${errorType}`,
+    body: `Verifique os logs da ${errorType}`,
+  });
+}
+
 const cronArticles = async () => {
   cron.schedule(
     //TODO - Lembrar de alterar para as 09:00 -> 0 9 * * *
@@ -27,32 +43,38 @@ const cronArticles = async () => {
       const startDate = new Date().getTime();
       console.log("[START] [cronArticle] - ", parsedDataTime(startDate));
       const consumerService = new ConsumerService();
+      const mailProvider = new MailtrapMailProvider();
+      try {
+        const total = await consumerService.getCount();
+        console.log(`Total articles: ${total}`);
 
-      const total = await consumerService.getCount();
-      console.log(`Total articles: ${total}`);
+        const cronJob = await prismaClient.cronJob.findFirst({
+          orderBy: { id: "desc" },
+        });
 
-      const cronJob = await prismaClient.cronJob.findFirst({
-        orderBy: { id: "desc" },
-      });
+        let cronJobQuantity = cronJob?.quantity || 0;
 
-      let cronJobQuantity = cronJob?.quantity || 0;
-      if (cronJobQuantity != total) {
-        await consumerService.saveLogCron(total);
+        if (cronJobQuantity != total) {
+          await consumerService.saveLogCron(total);
 
-        const requests = total - cronJobQuantity;
+          const requests = total - cronJobQuantity;
 
-        if (requests > 1000) {
-          await multipleRequests(consumerService, total);
-        } else {
-          const articles = await consumerService.listAllArticles(
-            1,
-            requests + 1
-          );
-          await consumerService.saveArticles(articles);
+          if (requests > 1000) {
+            await multipleRequests(consumerService, total);
+          } else {
+            const articles = await consumerService.listAllArticles(
+              1,
+              requests + 1
+            );
+            await consumerService.saveArticles(articles);
+          }
+          console.log("Data updated");
         }
-        console.log("Data updated");
+        console.log("DB and API synchronized");
+      } catch (error) {
+        console.log("Email de Alerta para o suporte disparado!");
+        await emailAlert("[cronArticle]", mailProvider);
       }
-      console.log("DB and API synchronized");
       const endDate = new Date().getTime();
       console.log("[STOP] [cronArticle] - ", parsedDataTime(endDate));
     },
