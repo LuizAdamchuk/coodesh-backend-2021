@@ -1,5 +1,6 @@
 import { UpdateArticle } from "./UpdateArticle";
 import FakeArticlesRepository from "../../../repositories/fakes/FakesArticlesRepository";
+import { IUpdateArticleRequestDTO } from "./UpdateArticleDTO";
 
 describe("updateArticleService", () => {
   let prismaArticleRepository: FakeArticlesRepository;
@@ -29,5 +30,11 @@ describe("updateArticleService", () => {
 
     expect(spyUpdateArticleService).toBeCalled();
     expect(result).toEqual(expectedResult);
+  });
+  it("should be return error if article not found", async () => {
+    const mockRequest = {} as IUpdateArticleRequestDTO;
+    await expect(
+      updateArticleService.execute(3, mockRequest)
+    ).rejects.toBeInstanceOf(Error);
   });
 });

@@ -25,6 +25,9 @@ export default class FakeArticlesRepository implements IArticleRepository {
   public async save(data: ICreateArticleRequestDTO): Promise<void> {
     const article = new Article(data);
 
+    const verify = this.articles.find((article) => article.id === data.id);
+    if (verify) throw new Error();
+
     article.id = this.articles.length + 1;
 
     article.title = data.title;
@@ -40,6 +43,7 @@ export default class FakeArticlesRepository implements IArticleRepository {
 
   public async get(id: number): Promise<Article | undefined> {
     const article = this.articles.find((article) => article.id === id);
+    if (!article) throw new Error();
 
     return article;
   }
@@ -86,6 +90,8 @@ export default class FakeArticlesRepository implements IArticleRepository {
   }
 
   public async delete(id: number): Promise<void> {
+    const article = this.articles.find((article) => article.id === id);
+    if (!article) throw new Error();
     this.articles = this.articles.filter((article) => article.id !== id);
   }
 }

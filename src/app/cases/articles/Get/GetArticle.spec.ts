@@ -30,4 +30,8 @@ describe("getArticleService", () => {
     expect(spyGetArticleService).toBeCalled();
     expect(result).toEqual(expectedResult);
   });
+
+  it("should be return error if article not found", async () => {
+    await expect(getArticleService.execute(3)).rejects.toBeInstanceOf(Error);
+  });
 });

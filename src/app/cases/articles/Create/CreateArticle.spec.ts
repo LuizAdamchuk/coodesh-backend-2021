@@ -28,4 +28,20 @@ describe("createArticleService", () => {
 
     expect(spyCreateArticleService).toBeCalled();
   });
+
+  it("should not be able to create", async () => {
+    await expect(
+      createArticleService.execute({
+        id: 2,
+        title: "Teste",
+        featured: false,
+        url: "teste",
+        imageUrl: "teste",
+        newsSite: "teste",
+        summary: "teste",
+        publishedAt: "teste",
+        updatedAt: "teste",
+      })
+    ).rejects.toBeInstanceOf(Error);
+  });
 });
