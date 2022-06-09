@@ -18,10 +18,6 @@ async function multipleRequests(consumerService, total: number) {
   }
 }
 
-function parsedDataTime(date: number) {
-  return new Date(date).toLocaleTimeString();
-}
-
 const cronArticles = async () => {
   cron.schedule(
     //TODO - Lembrar de alterar para as 09:00 -> 0 9 * * *

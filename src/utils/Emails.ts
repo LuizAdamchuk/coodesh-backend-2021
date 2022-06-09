@@ -3,7 +3,7 @@ import { MailtrapMailProvider } from "../app/services/implementations/MailtrapMa
 export class EmailsUtils {
   constructor(private mailProvider: MailtrapMailProvider) {}
 
-  async alert(errorType: string) {
+  public async alert(errorType: string) {
     await this.mailProvider.sendMail({
       to: {
         name: "Suporte",

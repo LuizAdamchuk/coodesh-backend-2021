@@ -1,5 +1,5 @@
 export class DateUtils {
-  parsedEpochToString(date: number) {
+  public parsedEpochToString(date: number) {
     return new Date(date).toLocaleTimeString();
   }
 }
