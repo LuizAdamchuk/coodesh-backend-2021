@@ -98,7 +98,7 @@ MAILTRAP_PASS=(pegue as variaveis no seu mailtrap)
 
 - Diferencial 1:
 
-* [x] Configurar Docker no Projeto para facilitar o Deploy da equipe de DevOps;
+* [ ] Configurar Docker no Projeto para facilitar o Deploy da equipe de DevOps;
 
 - Diferencial 2:
 
