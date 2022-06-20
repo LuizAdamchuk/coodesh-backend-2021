@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.0",
+  "openapi": "3.0.1",
   "info": {
     "title": "API DOCS",
     "description": "Coodesh Backend Challenge - dmchk",
@@ -11,7 +11,7 @@
   },
   "servers": [{ "url": "http://localhost:3333/" }],
   "paths": {
-    "/articles": {
+    "/articles/": {
       "post": {
         "summary": "Cadastro de artigo",
         "description": "Rota responsável por cadastrar artigo",
@@ -44,16 +44,8 @@
           "400": {
             "description": "Unique constraint failed, verify: id, title"
           },
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "$ref": "#/components/schemas/Article"
-                }
-              }
-            }
+          "201": {
+            "description": "Created"
           }
         }
       },
