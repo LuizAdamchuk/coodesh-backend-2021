@@ -6,9 +6,12 @@ import router from "./routes";
 import { errors } from "celebrate";
 import { AppError } from "./errors/AppError";
 import { cronArticles } from "./scripts/cronArticles";
+import swaggerUi from "swagger-ui-express";
+import swaggerJson from "../src/routes/swagger.json";
 
 const app = express();
 app.use(express.json());
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerJson));
 app.use(cors());
 app.use(errors());
 
@@ -33,7 +36,7 @@ app.use(
 app.use(router);
 
 // Calling the cron script
-cronArticles();
+// cronArticles();
 
 app.listen(3333, () => {
   console.log("Server started on port 3333");

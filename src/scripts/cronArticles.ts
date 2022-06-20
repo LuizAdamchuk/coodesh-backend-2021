@@ -21,6 +21,7 @@ async function multipleRequests(consumerService, total: number) {
 const cronArticles = async () => {
   cron.schedule(
     //TODO - Lembrar de alterar para as 09:00 -> 0 9 * * *
+    //TODO - Ao conectar na AWS fazer a conexao do logger do CW
     "0 */1 * * * *",
     async () => {
       const consumerService = new ConsumerService();
@@ -52,13 +53,10 @@ const cronArticles = async () => {
           if (requests > 1000) {
             await multipleRequests(consumerService, total);
           } else {
-            const articles = await consumerService.listAllArticles(
-              1,
-              requests + 1
-            );
+            const articles = await consumerService.listAllArticles(1, requests);
             await consumerService.saveArticles(articles);
+            console.log(`Data updated, more ${articles.length} data`);
           }
-          console.log("Data updated");
         }
         console.log("DB and API synchronized");
       } catch (error) {

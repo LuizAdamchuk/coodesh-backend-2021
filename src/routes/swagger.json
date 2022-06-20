@@ -1,0 +1,296 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API DOCS",
+    "description": "Coodesh Backend Challenge - dmchk",
+    "termsOfService": "http://localhost:3000/terms",
+    "contact": {
+      "email": "adamchuk.junior@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [{ "url": "http://localhost:3333/" }],
+  "paths": {
+    "/articles": {
+      "post": {
+        "summary": "Cadastro de artigo",
+        "description": "Rota responsável por cadastrar artigo",
+        "tags": ["Articles"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Article"
+              },
+              "examples": {
+                "article": {
+                  "value": {
+                    "id": 1,
+                    "title": "Teste 1",
+                    "url": "https://www.teste.com/teste/",
+                    "imageUrl": "https://www.teslarati.com/wp-content/uploads/2020/08/Falcon-9-B1060-Atlas-V-Mars-2020-Richard-Angle-1-c-1024x520.jpg",
+                    "newsSite": "Teste1",
+                    "summary": "Teste1",
+                    "publishedAt": "2020-11-05T18:22:13.000Z",
+                    "updatedAt": "2021-05-18T13:47:48.062Z",
+                    "featured": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Unique constraint failed, verify: id, title"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Article"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Encontre um artigo especifico",
+        "description": "Rota responsável por encontrar um artigo especifico",
+        "tags": ["Articles"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FindArticle"
+              },
+              "examples": {
+                "article": {
+                  "value": {
+                    "id": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Precisa existir um ID ou ID não encontrado"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Article"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete um artigo especifico",
+        "description": "Rota responsável por deletar um artigo especifico",
+        "tags": ["Articles"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteArticle"
+              },
+              "examples": {
+                "article": {
+                  "value": {
+                    "id": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Precisa existir um ID ou ID não encontrado"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "articles/:id": {
+      "put": {
+        "summary": "Alterar um artigo especifico",
+        "description": "Rota responsável por alterar um artigo especifico",
+        "tags": ["Articles"],
+        "parameters": [
+          {
+            "id": "id",
+            "in": "query",
+            "description": "ID do produto que deseja alterar",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeArticle"
+              },
+              "examples": {
+                "article": {
+                  "value": {
+                    "title": "Teste 2",
+                    "url": "https://www.teste.com/teste/",
+                    "imageUrl": "https://www.teslarati.com/wp-content/uploads/2020/08/Falcon-9-B1060-Atlas-V-Mars-2020-Richard-Angle-1-c-1024x520.jpg",
+                    "newsSite": "Teste2",
+                    "summary": "Teste2",
+                    "publishedAt": "2020-11-05T18:22:13.000Z",
+                    "updatedAt": "2021-05-18T13:47:48.062Z",
+                    "featured": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Precisa existir um ID ou ID não encontrado"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Article"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/articles/:page": {
+      "get": {
+        "summary": "Busca 100 artigos por página",
+        "description": "Rota responsável por buscar até 100 artigos em cada página",
+        "tags": ["Articles"],
+        "parameters": [
+          {
+            "page": "page",
+            "in": "query",
+            "description": "Númeração da pagina",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Tente um número menor, pagina não encontrada."
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Article"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Article": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "imageUrl": {
+            "type": "string"
+          },
+          "newsSite": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "publishedAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "featured": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ChangeArticle": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "imageUrl": {
+            "type": "string"
+          },
+          "newsSite": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "publishedAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "featured": {
+            "type": "boolean"
+          }
+        }
+      },
+      "FindArticle": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          }
+        }
+      },
+      "DeleteArticle": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

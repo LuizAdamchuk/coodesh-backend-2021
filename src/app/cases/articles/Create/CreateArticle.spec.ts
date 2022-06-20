@@ -1,5 +1,6 @@
 import { CreateArticle } from "./CreateArticle";
 import FakeArticlesRepository from "../../../repositories/fakes/FakesArticlesRepository";
+import { ICreateArticleRequestDTO } from "./CreateArticleDTO";
 
 describe("createArticleService", () => {
   let prismaArticleRepository: FakeArticlesRepository;
@@ -13,18 +14,9 @@ describe("createArticleService", () => {
 
   it("should execute be called", async () => {
     const spyCreateArticleService = jest.spyOn(createArticleService, "execute");
+    const mockCreateArticleRequest = {} as ICreateArticleRequestDTO;
 
-    await createArticleService.execute({
-      id: 2,
-      title: "Teste",
-      featured: false,
-      url: "teste",
-      imageUrl: "teste",
-      newsSite: "teste",
-      summary: "teste",
-      publishedAt: "teste",
-      updatedAt: "teste",
-    });
+    await createArticleService.execute(mockCreateArticleRequest);
 
     expect(spyCreateArticleService).toBeCalled();
   });
@@ -32,8 +24,8 @@ describe("createArticleService", () => {
   it("should not be able to create", async () => {
     await expect(
       createArticleService.execute({
-        id: 2,
-        title: "Teste",
+        id: 1,
+        title: "teste",
         featured: false,
         url: "teste",
         imageUrl: "teste",

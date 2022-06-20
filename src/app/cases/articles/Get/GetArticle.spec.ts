@@ -13,6 +13,7 @@ describe("getArticleService", () => {
 
   it("should execute be called", async () => {
     const spyGetArticleService = jest.spyOn(getArticleService, "execute");
+
     const expectedResult = {
       id: 1,
       title: "teste",
