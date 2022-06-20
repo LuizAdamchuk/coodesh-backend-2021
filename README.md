@@ -53,6 +53,30 @@ suba o servidor
 yarn start
 ```
 
+-> Para fins de teste a cron irá rodar no primeiro minuto, populando o banco de dados com os valores. Basta descomentar no arquivo server.ts:
+```
+// cronArticles();
+```
+## Caso queira testar o alerta via E-MAIL
+
+- Crie um conta no [Mailtrap]("https://mailtrap.io/signin")
+- Coloquei as variaveis abaixo no .env criado na raiz do seu projeto. 
+
+```
+MAILTRAP_HOST=(pegue as variaveis no seu mailtrap)
+MAILTRAP_PORT=(pegue as variaveis no seu mailtrap)
+MAILTRAP_USER=(pegue as variaveis no seu mailtrap)
+MAILTRAP_PASS=(pegue as variaveis no seu mailtrap)
+```
+
+## URLs:
+
+- http://localhost:3333/
+- http://localhost:3333/api-docs
+
+## INSOMNIA
+- Arquivo está dentro de útils basta importart no seu insomnia.
+
 ### ToDo
 
 - Obrigatório 1:
