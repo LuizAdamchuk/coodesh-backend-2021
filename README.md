@@ -10,6 +10,7 @@ Este é um desafio para avaliação das capacidades de desenvolvimento Back-end 
 - Nodejs
 - Postgresql
 - Docker
+- Prisma
 
 ## Instalação do Projeto
 
