@@ -59,7 +59,7 @@ yarn start
 ```
 ## Caso queira testar o alerta via E-MAIL
 
-- Crie um conta no [Mailtrap]("https://mailtrap.io/signin")
+- Crie um conta no [Mailtrap](https://mailtrap.io/signin)
 - Coloquei as variaveis abaixo no .env criado na raiz do seu projeto. 
 
 ```
