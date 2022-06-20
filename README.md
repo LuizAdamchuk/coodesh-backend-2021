@@ -13,8 +13,6 @@ Este é um desafio para avaliação das capacidades de desenvolvimento Back-end 
 
 ## Instalação do Projeto
 
-### Sem utilização do Docker
-
 - Passo 1:
 
 Crie o Banco de dados postgresql em sua máquina.
