@@ -20,9 +20,10 @@ async function multipleRequests(consumerService, total: number) {
 
 const cronArticles = async () => {
   cron.schedule(
-    //TODO - Lembrar de alterar para as 09:00 -> 0 9 * * *
-    //TODO - Ao conectar na AWS fazer a conexao do logger do CW
-    "0 */1 * * * *",
+    // TODO - Ao conectar na AWS fazer a conexao do logger do CW
+    // TODO - Alterar para as 09:00, agora esta rodando de minuto em minuto
+    // 0 9 * * *
+    "0 */3 * * * *",
     async () => {
       const consumerService = new ConsumerService();
       const mailProvider = new MailtrapMailProvider();
