@@ -14,7 +14,7 @@ Este é um desafio para avaliação das capacidades de desenvolvimento Back-end 
 
 ## Instalação do Projeto
 
-# Sem Docker
+# Sem Docker Compose
 
 - Passo 1:
 
