@@ -104,7 +104,7 @@ yarn start
 DATABASE_URL="postgresql://postgres:spaceflight@spaceflight-db:5432/spaceflight?schema=public"
 ```
 
-- Passo 1:
+- Passo 1 *(pode demorar de 1-3min para subir)*:
 ```
 docker-compose up -d
 ```
