@@ -81,7 +81,7 @@ docker-compose up -d
 docker-compose down
 ```
 
-----Logs----
+### Logs
 
 *Para visualizar os logs*
    ```
@@ -91,8 +91,6 @@ docker-compose down
    ```
    docker container logs -f <id>
    ```
-   
-----Logs----
 
 ## Caso queira testar o alerta via E-MAIL
 
