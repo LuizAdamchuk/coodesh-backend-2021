@@ -106,15 +106,10 @@ DATABASE_URL="postgresql://postgres:spaceflight@spaceflight-db:5432/spaceflight?
 
 - Passo 1:
 ```
-yarn install
-```
-
-- Passo 2:
-```
 docker-compose up -d
 ```
 
-- Passo 3(finalizar aplicação):
+- Passo 2(finalizar aplicação):
 ```
 docker-compose down
 ```
