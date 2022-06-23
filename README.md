@@ -131,3 +131,14 @@ MAILTRAP_PASS=(pegue as variaveis no seu mailtrap)
 ---
 
 This is a challenge by [Coodesh](https://coodesh.com).
+
+Logs da cron em funcionamento: 
+- Erro, disparando email de alerta.
+![image](https://user-images.githubusercontent.com/53198996/175331422-3cb8f371-692f-45e4-8779-879f972550e2.png)
+- Sincronizando grande quantidade de dados.
+![image](https://user-images.githubusercontent.com/53198996/175331629-07b8436b-6344-418c-ab13-1836e927dd01.png)
+- Mantendo a api sincronizada.
+![image](https://user-images.githubusercontent.com/53198996/175331757-c2af895a-13ef-48e4-bd48-d7ffe5dac352.png)
+
+
+
