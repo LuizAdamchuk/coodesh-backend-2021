@@ -80,29 +80,30 @@ docker-compose up -d
 ```
 docker-compose down
 ```
+## Extra:
 
-### Logs
+   ### Logs
 
-*Para visualizar os logs*
+   *Para visualizar os logs*
+      ```
+      docker container ls
+      ```
+      *Pegar o id do coodesh-backend-2021_app*
+      ```
+      docker container logs -f <id>
+      ```
+
+   ### Caso queira testar o alerta via E-MAIL
+
+   - Crie um conta no [Mailtrap](https://mailtrap.io/signin)
+   - Coloque as variaveis abaixo no .env criado na raiz do seu projeto. 
+
    ```
-   docker container ls
+   MAILTRAP_HOST=(pegue as variaveis no seu mailtrap)
+   MAILTRAP_PORT=(pegue as variaveis no seu mailtrap)
+   MAILTRAP_USER=(pegue as variaveis no seu mailtrap)
+   MAILTRAP_PASS=(pegue as variaveis no seu mailtrap)
    ```
-   *Pegar o id do coodesh-backend-2021_app*
-   ```
-   docker container logs -f <id>
-   ```
-
-## Caso queira testar o alerta via E-MAIL
-
-- Crie um conta no [Mailtrap](https://mailtrap.io/signin)
-- Coloque as variaveis abaixo no .env criado na raiz do seu projeto. 
-
-```
-MAILTRAP_HOST=(pegue as variaveis no seu mailtrap)
-MAILTRAP_PORT=(pegue as variaveis no seu mailtrap)
-MAILTRAP_USER=(pegue as variaveis no seu mailtrap)
-MAILTRAP_PASS=(pegue as variaveis no seu mailtrap)
-```
 
 ## URLs:
  - Swagger: 
