@@ -75,14 +75,17 @@ docker-compose up -d
 ```
 docker-compose down
 ```
-*Para visualizar os logs
+
+----Logs----
+*Para visualizar os logs*
    ```
    docker container ls
    ```
-   Pegar o id do coodesh-backend-2021_app
+   *Pegar o id do coodesh-backend-2021_app*
    ```
    docker container logs -f <id>
    ```
+----Logs----
 
 ## Caso queira testar o alerta via E-MAIL
 
