@@ -39,7 +39,8 @@ Este é um desafio para avaliação das capacidades de desenvolvimento Back-end 
 
 * [x] Escrever Unit Tests para os endpoints da API;
 
-## Tecnologiais Utilizadas
+
+# Tecnologiais Utilizadas
 
 - Nodejs
 - Postgresql
