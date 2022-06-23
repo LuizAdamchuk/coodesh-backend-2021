@@ -14,6 +14,8 @@ Este é um desafio para avaliação das capacidades de desenvolvimento Back-end 
 
 ## Instalação do Projeto
 
+# Sem Docker
+
 - Passo 1:
 
 Crie o Banco de dados postgresql em sua máquina.
@@ -56,6 +58,19 @@ yarn start
 ```
 // cronArticles();
 ```
+
+# Com Docker
+
+- Passo 1:
+```
+yarn install
+```
+
+- Passo 2:
+```
+docker-compose up -d
+```
+
 ## Caso queira testar o alerta via E-MAIL
 
 - Crie um conta no [Mailtrap](https://mailtrap.io/signin)
