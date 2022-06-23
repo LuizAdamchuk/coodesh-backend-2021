@@ -10,6 +10,9 @@ Este é um desafio para avaliação das capacidades de desenvolvimento Back-end 
 - Postgresql
 - Docker
 - Prisma
+- Jest
+- Swagger
+- Mailtrap
 
 ## Instalação do Projeto
 
