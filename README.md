@@ -152,8 +152,6 @@ http://localhost:3333/api-docs
 
 ---
 
-This is a challenge by [Coodesh](https://coodesh.com).
-
 Logs da cron em funcionamento: 
 - Erro, disparando email de alerta.
 
@@ -168,5 +166,6 @@ Logs da cron em funcionamento:
 
 ![image](https://user-images.githubusercontent.com/53198996/175331757-c2af895a-13ef-48e4-bd48-d7ffe5dac352.png)
 
+This is a challenge by [Coodesh](https://coodesh.com).
 
 
