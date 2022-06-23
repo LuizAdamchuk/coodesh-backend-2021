@@ -54,7 +54,7 @@ suba o servidor
 yarn start
 ```
 
--> Para fins de teste a cron irá rodar no primeiro minuto, populando o banco de dados com os valores. Basta descomentar no arquivo server.ts:
+-> Para fins de teste a cron irá rodar a cada 3 minutos, populando o banco de dados com os valores. Basta comentar no arquivo server.ts para que a cron pare de rodar:
 ```
 // cronArticles();
 ```
