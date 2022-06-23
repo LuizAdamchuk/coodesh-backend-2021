@@ -75,7 +75,7 @@ docker-compose up -d
 ```
 docker-compose down
 ```
-- Para visualizar os logs
+*Para visualizar os logs
    ```
    docker container ls
    ```
