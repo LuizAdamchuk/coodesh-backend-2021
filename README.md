@@ -81,8 +81,8 @@ docker-compose down
 ```
 
 ## URLs:
- - Swagger: 
-http://localhost:3333/api-docs
+- Welcome: http://localhost:3333/
+- Swagger(API-Docs): http://localhost:3333/api-docs
 
 ## Extra:
 
