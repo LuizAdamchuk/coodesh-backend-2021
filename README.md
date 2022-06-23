@@ -89,11 +89,11 @@ http://localhost:3333/api-docs
 
    ### Logs
 
-   *Para visualizar os logs*
+   *Para visualizar os logs* 
       ```
       docker container ls
       ```
-      *Pegar o id do coodesh-backend-2021_app*
+      >*Pegar o id do coodesh-backend-2021_app*
       ```
       docker container logs -f <id>
       ```
@@ -111,7 +111,7 @@ http://localhost:3333/api-docs
    ```
 
    ### INSOMNIA
-   *Para testar as requisições
+   *Para testar as requisições*
    - Arquivo está dentro de útils, basta importart no seu insomnia.
 
 ### ToDo
