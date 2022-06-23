@@ -27,7 +27,7 @@ docker run --name testapi -p 5432:5432 -e POSTGRES_PASSWORD="testapi" -d postgre
 -> Crie um arquivo .env na raiz no projeto, cole:
 
 ```
-DATABASE_URL="postgresql://postgres:testapi@localhost:5432/postgres?schema=public"
+DATABASE_URL="postgresql://postgres:spaceflight@spaceflight-db:5432/spaceflight?schema=public"
 ```
 
 - Passo 2:
@@ -60,6 +60,11 @@ yarn start
 ```
 
 # Com Docker
+
+-> Crie um arquivo .env na raiz no projeto, cole:
+```
+DATABASE_URL="postgresql://postgres:spaceflight@spaceflight-db:5432/spaceflight?schema=public"
+```
 
 - Passo 1:
 ```
