@@ -14,6 +14,8 @@ Este é um desafio para avaliação das capacidades de desenvolvimento Back-end 
 
 ## Instalação do Projeto
 
+# Sem Docker
+
 - Passo 1:
 
 Crie o Banco de dados postgresql em sua máquina.
@@ -56,10 +58,23 @@ yarn start
 ```
 // cronArticles();
 ```
+
+# Com Docker
+
+- Passo 1:
+```
+yarn install
+```
+
+- Passo 2:
+```
+docker-compose up -d
+```
+
 ## Caso queira testar o alerta via E-MAIL
 
 - Crie um conta no [Mailtrap](https://mailtrap.io/signin)
-- Coloquei as variaveis abaixo no .env criado na raiz do seu projeto. 
+- Coloque as variaveis abaixo no .env criado na raiz do seu projeto. 
 
 ```
 MAILTRAP_HOST=(pegue as variaveis no seu mailtrap)
@@ -74,6 +89,7 @@ MAILTRAP_PASS=(pegue as variaveis no seu mailtrap)
 - http://localhost:3333/api-docs
 
 ## INSOMNIA
+*Para testar as requisições
 - Arquivo está dentro de útils basta importart no seu insomnia.
 
 ### ToDo
@@ -98,7 +114,7 @@ MAILTRAP_PASS=(pegue as variaveis no seu mailtrap)
 
 - Diferencial 1:
 
-* [ ] Configurar Docker no Projeto para facilitar o Deploy da equipe de DevOps;
+* [x] Configurar Docker no Projeto para facilitar o Deploy da equipe de DevOps;
 
 - Diferencial 2:
 
