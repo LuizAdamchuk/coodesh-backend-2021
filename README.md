@@ -71,6 +71,11 @@ yarn install
 docker-compose up -d
 ```
 
+- Passo 3(finalizar aplicação):
+```
+docker-compose down
+```
+
 ## Caso queira testar o alerta via E-MAIL
 
 - Crie um conta no [Mailtrap](https://mailtrap.io/signin)
@@ -84,13 +89,12 @@ MAILTRAP_PASS=(pegue as variaveis no seu mailtrap)
 ```
 
 ## URLs:
-
-- http://localhost:3333/
-- http://localhost:3333/api-docs
+ - Swagger: 
+http://localhost:3333/api-docs
 
 ## INSOMNIA
 *Para testar as requisições
-- Arquivo está dentro de útils basta importart no seu insomnia.
+- Arquivo está dentro de útils, basta importart no seu insomnia.
 
 ### ToDo
 
