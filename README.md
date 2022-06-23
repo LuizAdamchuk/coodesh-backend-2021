@@ -109,7 +109,7 @@ DATABASE_URL="postgresql://postgres:spaceflight@spaceflight-db:5432/spaceflight?
 docker-compose up -d
 ```
 
-- Passo 2(finalizar aplicação):
+- Passo 2 *(finalizar aplicação)*:
 ```
 docker-compose down
 ```
