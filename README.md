@@ -74,6 +74,7 @@ MAILTRAP_PASS=(pegue as variaveis no seu mailtrap)
 - http://localhost:3333/api-docs
 
 ## INSOMNIA
+*Para testar as requisições
 - Arquivo está dentro de útils basta importart no seu insomnia.
 
 ### ToDo
