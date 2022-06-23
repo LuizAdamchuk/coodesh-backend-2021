@@ -80,6 +80,11 @@ docker-compose up -d
 ```
 docker-compose down
 ```
+
+## URLs:
+ - Swagger: 
+http://localhost:3333/api-docs
+
 ## Extra:
 
    ### Logs
@@ -105,13 +110,9 @@ docker-compose down
    MAILTRAP_PASS=(pegue as variaveis no seu mailtrap)
    ```
 
-## URLs:
- - Swagger: 
-http://localhost:3333/api-docs
-
-## INSOMNIA
-*Para testar as requisições
-- Arquivo está dentro de útils, basta importart no seu insomnia.
+   ### INSOMNIA
+   *Para testar as requisições
+   - Arquivo está dentro de útils, basta importart no seu insomnia.
 
 ### ToDo
 
