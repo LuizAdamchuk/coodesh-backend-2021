@@ -3,7 +3,6 @@
 Este é um desafio para avaliação das capacidades de desenvolvimento Back-end Developer, o objetivo deste projeto é criar uma API Rest que utilizará os dados do projeto
 [Space Flight News](https://api.spaceflightnewsapi.net/v3/documentation), uma api pública com informações sobre voos espaciais.
 
-- Acessando o projeto: localhost:3333/
 
 ## Tecnologiais Utilizadas
 
